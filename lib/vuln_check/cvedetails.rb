@@ -11,7 +11,7 @@ require 'nokogiri'
 module VulnCheck
     class CVEDetails
         def self.all_product_vulnerabilities
-            PRODUCTS.keys.map {|p| product_vulnerabilities p }
+            PRODUCTS.keys.map {|p| product_vulnerabilities p }.flatten
         end
 
         def self.product_vulnerabilities(product)

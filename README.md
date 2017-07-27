@@ -1,7 +1,7 @@
 # Exploit Checker
 
-This is a simpler and limited version of the one currently run
-at PrivateInternetAccess.
+This is a simpler and limited version of the one currently run at
+PrivateInternetAccess.
 
 ## The simplest thing that could possibly work
 
@@ -12,18 +12,29 @@ storage database. It will then print a message with all the "new"
 vulnerabilities found. Further runs will only print newly found
 vulnerabilities.
 
-## Implemented Features
+## Usage
+
+For production use, this is meant to be run under cron (or another
+scheduler which delivers messages when output is provided). To set up
+cron to run every night at midnight, and notify `security@site.example`,
+use a `crontab(5)` like the following:
+
+    MAILTO=security@site.example
+    0 0 * * * /usr/local/bin/vuln-check 2>&1
+
+Additionally, production use should either ensure the ruby environment
+has all dependant gems installed, or packaged into the application
+artifact. Packaging dependencies is most easily done by using
+`bundle package` as documented at:
+http://bundler.io/v1.15/man/bundle-package.1.html. Alternatively, fpm is
+an excellent way to install as a system package:
+https://github.com/jordansissel/fpm
+
+## Features
 
 -   use vulnerability database http://www.cvedetails.com/
 -   support multiple products: OpenSSL, OpenVPN, OpenSSH
 -   written in ruby
-
-On each execution:
-
--   check vulnerability database for new vulnerabilities
-
-## To Be Implemented Features
-
 -   run periodically by cron
 -   notify if new CVE for a particular product has been published to
     vulnerability database
@@ -32,14 +43,10 @@ On each execution:
 On each execution:
 
 -   load previous vulnerabilities from storage
--   send single message with all new vulnerabilities found
+-   check vulnerability database for new vulnerabilities
 -   update storage of last vulnerabilities found
+-   send single message with all new vulnerabilities found
 -   doesn't notify if no new vulnerabilities found
-
-## Assumptions
-
--   the storage is already created
--   storage has already been run in the past
 
 ## Delivery
 
