@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+# required for ruby2.4
+apt-get install -y \
+    python3-software-properties \
+    software-properties-common
+apt-add-repository ppa:brightbox/ruby-ng
+apt-get update
+apt-get upgrade
+apt-get install -y \
+    ruby2.4 \
+    ruby2.4-dev
+
+apt-get install -y  \
+    build-essential \
+    libxml2-dev \
+    libxslt1-dev  \
+    zlib1g-dev \
