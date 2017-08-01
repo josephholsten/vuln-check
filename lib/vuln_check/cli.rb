@@ -25,11 +25,11 @@ module VulnCheck
             unless new_vulns.empty?
                 puts "New vulnerabilities found!"
                 new_vulns.each do |v|
-                puts
-                puts "Product: #{v[:product]}"
-                puts "CVE: #{v[:id]}"
-                puts "Publication date: #{v[:publish_date]}"
-                puts "URL: #{v[:url]}"
+                    puts
+                    puts "Product: #{v[:product]}"
+                    puts "CVE: #{v[:id]}"
+                    puts "Publication date: #{v[:publish_date]}"
+                    puts "URL: #{v[:url]}"
                 end
             end
         end

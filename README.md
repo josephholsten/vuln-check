@@ -30,6 +30,12 @@ http://bundler.io/v1.15/man/bundle-package.1.html. Alternatively, fpm is
 an excellent way to install as a system package:
 https://github.com/jordansissel/fpm
 
+## Building
+
+Generate the latest artifact by running
+
+    rake build
+
 ## Features
 
 -   use vulnerability database http://www.cvedetails.com/
