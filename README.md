@@ -1,8 +1,5 @@
 # Exploit Checker
 
-This is a simpler and limited version of the one currently run at
-PrivateInternetAccess.
-
 ## The simplest thing that could possibly work
 
     bundle exec bin/vuln-check
@@ -53,10 +50,3 @@ On each execution:
 -   update storage of last vulnerabilities found
 -   send single message with all new vulnerabilities found
 -   doesn't notify if no new vulnerabilities found
-
-## Delivery
-
--   send to takehome@londontrustmedia.com
--   packaged in zip file
--   include repo
--   include setup instructions
